@@ -1,8 +1,4 @@
-module Extension_constructor = struct
-  [@@@ocaml.warning "-3"]
-
-  let of_val = Obj.extension_constructor
-end
+module Extension_constructor = Caml.Obj.Extension_constructor
 
 let register exc exc_name =
   Conv.Exn_converter.add (Extension_constructor.of_val exc) (fun _exc ->
